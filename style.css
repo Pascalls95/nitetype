@@ -1,8 +1,13 @@
 h1 {
-    font-family: Google Sans Code;
+    font-family: Montserrat;
     color: white;
 }
 
 body {
     background-color: black;
+}
+
+p {
+    color: white;
+    font-family: Google Sans Code;
 }
