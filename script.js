@@ -10,6 +10,9 @@ const wordBank = [
     "horizon", "star", "dance", "crescent", "scraps"
 ];
 
+let currentWordIndex = 0;
+let currentLetterIndex = 0;
+
 const wordsContainer = document.getElementById("words");
 
 function generateWords() {
@@ -39,3 +42,41 @@ function generateWords() {
 }
 
 generateWords();
+
+document.addEventListener("keydown", function(event) {
+    if (event.key.length !== 1 && event.key !== "Backspace") {
+        return;
+    }
+
+    const words = document.querySelectorAll(".word");
+
+    const currentWord = words[currentWordIndex];
+
+    if (!currentWord) {
+        return;
+    }
+
+    const letters = currentWord.querySelectorAll(".letter");
+
+    if (event.key === "Backspace") {
+        if (currentLetterIndex > 0) {
+            currentLetterIndex--;
+            letters[currentLetterIndex].classList.remove("correct", "incorrect");
+        }
+        return;
+    }
+
+    const expectedLetter = letters[currentLetterIndex];
+
+    if(!expectedLetter) {
+        return;
+    }
+
+    if (event.key === expectedLetter.textContent) {
+        expectedLetter.classList.add("correct");
+    }else {
+        expectedLetter.classList.add("incorrect");
+    }
+
+    currentLetterIndex++;
+});

@@ -28,3 +28,11 @@ button {
     border: solid 2px white;
     border-radius: 4px;
 }
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
