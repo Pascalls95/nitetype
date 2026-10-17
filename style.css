@@ -2,13 +2,14 @@ h1 {
     font-family: Montserrat;
     color: white;
     margin-bottom: 0px;
+    margin-left: 15px;
 }
 
 h6 {
     font-family: Google Sans Code;
     color: white;
     margin-top: 5px;
-    margin-left: 48px;
+    margin-left: 63px;
 }
 
 body {
@@ -20,8 +21,8 @@ p {
     font-family: Google Sans Code;
 }
 
-#typing-test {
-    color: white;
+#words {
+    color: rgb(170, 170, 170);
     font-family: Google Sans Code;
 }
 
@@ -39,7 +40,7 @@ button {
 }
 
 .correct {
-    color: green;
+    color: white;
 }
 
 .incorrect {
