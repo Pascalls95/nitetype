@@ -45,3 +45,17 @@ button {
 .incorrect {
     color: red;
 }
+
+.letter {
+    position: relative;
+}
+
+.letter.current::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: white;
+}

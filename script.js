@@ -46,6 +46,24 @@ function generateWords() {
 
 generateWords();
 
+function updateCursor() {
+    document.querySelectorAll(".letter.current").forEach(letter => {
+        letter.classList.remove("current");
+    });
+
+    const words = document.querySelectorAll(".word");
+    const currentWord = words[currentWordIndex];
+
+    if (!currentWord) return;
+
+    const letters = currentWord.querySelectorAll(".letter");
+
+    if (letters[currentLetterIndex]) {
+        letters[currentLetterIndex].classList.add("current")
+    }
+}
+updateCursor();
+
 document.addEventListener("keydown", function(event) {
     if (event.key.length !== 1 && 
         event.key !== "Backspace" &&
@@ -60,9 +78,10 @@ document.addEventListener("keydown", function(event) {
     if (event.key === " ") {
         event.preventDefault();
 
-        if (currentLetterIndex > 0) {
+        if (currentLetterIndex > 0 && currentWordIndex < words.length -1) {
             currentWordIndex++;
             currentLetterIndex = 0;
+            updateCursor();
         }
         return;
     }
@@ -77,6 +96,7 @@ document.addEventListener("keydown", function(event) {
         if (currentLetterIndex > 0) {
             currentLetterIndex--;
             letters[currentLetterIndex].classList.remove("correct", "incorrect");
+            updateCursor();
         }
         return;
     }
@@ -94,4 +114,5 @@ document.addEventListener("keydown", function(event) {
     }
 
     currentLetterIndex++;
+    updateCursor();
 });
