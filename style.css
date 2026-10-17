@@ -39,11 +39,13 @@ span {
 footer {
     color: white;
     font-family: Google Sans Code;
+    text-align: center;
 }
 
 #words {
     color: rgb(170, 170, 170);
     font-family: Google Sans Code;
+    margin: auto 100px 20px 100px;
 }
 
 button {
@@ -54,12 +56,18 @@ button {
     border: solid 2px rgb(147, 139, 139);
     cursor: pointer;
     margin: auto 5px auto 5px;
-    align-items: center;
     transition: 0.3s;
 }
 
 button:hover {
     border: solid 2px white;
+}
+
+#restart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .correct {
