@@ -6,7 +6,8 @@ const wordBank = [
     "track", "flow", "glow", "dark", "spark",
     "fast", "smooth", "key", "press", "drift",
     "blue", "quiet", "sharp", "neon", "sleep",
-    "banana", "hack", "club", "deprived", "phantom"
+    "banana", "hack", "club", "deprived", "phantom",
+    "horizon", "star", "dance", "crescent", "scraps"
 ];
 
 const wordsContainer = document.getElementById("words");
@@ -20,7 +21,14 @@ function generateWords() {
 
         const wordElement = document.createElement("span");
         wordElement.classList.add("word");
-        wordElement.textContent = randomWord;
+        
+        for (const letter of randomWord) {
+            const letterElement = document.createElement("span");
+            letterElement.classList.add("letter");
+            letterElement.textContent = letter;
+
+            wordElement.appendChild(letterElement);
+        }
 
         wordsContainer.appendChild(wordElement);
 
