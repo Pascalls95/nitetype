@@ -1,6 +1,14 @@
 h1 {
     font-family: Montserrat;
     color: white;
+    margin-bottom: 0px;
+}
+
+h6 {
+    font-family: Google Sans Code;
+    color: white;
+    margin-top: 5px;
+    margin-left: 48px;
 }
 
 body {
