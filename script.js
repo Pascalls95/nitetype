@@ -19,5 +19,15 @@ function generateWords() {
         const randomWord = wordBank[randomIndex];
 
         const wordElement = document.createElement("span");
+        wordElement.classList.add("word");
+        wordElement.textContent = randomWord;
+
+        wordsContainer.appendChild(wordElement);
+
+        if (i < 49) {
+            wordsContainer.appendChild(document.createTextNode(" "));
+        }
     }
 }
+
+generateWords();
