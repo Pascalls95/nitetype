@@ -7,7 +7,10 @@ const wordBank = [
     "fast", "smooth", "key", "press", "drift",
     "blue", "quiet", "sharp", "neon", "sleep",
     "banana", "hack", "club", "deprived", "phantom",
-    "horizon", "star", "dance", "crescent", "scraps"
+    "horizon", "star", "dance", "crescent", "scraps",
+    "algorithm", "variable", "string", "function", "constant",
+    "bug", "library", "frame", "work", "data",
+    "base", "front", "back", "end", "syntax"
 ];
 
 let currentWordIndex = 0;
@@ -44,13 +47,25 @@ function generateWords() {
 generateWords();
 
 document.addEventListener("keydown", function(event) {
-    if (event.key.length !== 1 && event.key !== "Backspace") {
+    if (event.key.length !== 1 && 
+        event.key !== "Backspace" &&
+        event.key !== " "
+    ) {
         return;
     }
 
     const words = document.querySelectorAll(".word");
-
     const currentWord = words[currentWordIndex];
+
+    if (event.key === " ") {
+        event.preventDefault();
+
+        if (currentLetterIndex > 0) {
+            currentWordIndex++;
+            currentLetterIndex = 0;
+        }
+        return;
+    }
 
     if (!currentWord) {
         return;
