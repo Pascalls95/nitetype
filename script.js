@@ -16,6 +16,12 @@ const wordBank = [
 let currentWordIndex = 0;
 let currentLetterIndex = 0;
 
+let testDuration = 30;
+let timeLeft = testDuration;
+let timerInterval = null;
+let testStarted = false;
+let testFinished = false;
+
 const wordsContainer = document.getElementById("words");
 
 function generateWords() {
