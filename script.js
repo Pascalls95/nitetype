@@ -101,6 +101,32 @@ function finishTest() {
     clearInterval(timerInterval);
     testFinished = true;
     timerElement.textContent = 0;
+
+    updateStats();
+}
+
+function updateStats() {
+    const elapsedSeconds = testDuration - timeLeft;
+    const elapsedMinutes = elapsedSeconds / 60;
+
+    let wpm = 0;
+
+    if (elapsedMinutes > 0) {
+        wpm = Math.round(
+            (correctCharacters / 5) / elapsedMinutes
+        );
+    }
+
+    let accuracy = 100;
+
+    if (totalKeystrokes > 0) {
+        accuracy = Math.round(
+            (correctCharacters / totalKeystrokes) * 100
+        );
+    }
+
+    wpmElement.textContent = wpm;
+    accuracyElement.textContent = accuracy + "%";
 }
 
 document.addEventListener("keydown", function(event) {
@@ -155,12 +181,17 @@ document.addEventListener("keydown", function(event) {
         return;
     }
 
+    totalKeystrokes++;
+
     if (event.key === expectedLetter.textContent) {
         expectedLetter.classList.add("correct");
+        correctCharacters++;
     }else {
         expectedLetter.classList.add("incorrect");
+        incorrectCharacters++;
     }
 
     currentLetterIndex++;
     updateCursor();
+    updateStats();
 });

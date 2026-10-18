@@ -35,6 +35,11 @@ body {
     color: white;
 }
 
+#results {
+    color: white;
+    font-family: Google Sans Code;
+}
+
 span {
     font-family: Google Sans Code;
 }
