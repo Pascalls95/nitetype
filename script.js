@@ -13,18 +13,28 @@ const wordBank = [
     "base", "front", "back", "end", "syntax"
 ];
 
+/*position tracking variables*/
 let currentWordIndex = 0;
 let currentLetterIndex = 0;
 
+/*timer variables*/
 let testDuration = 30;
 let timeLeft = testDuration;
 let timerInterval = null;
 let testStarted = false;
 let testFinished = false;
 
+/*wpm/accuracy variables*/
+let correctCharacters = 0;
+let incorrectCharacters = 0;
+let totalKeystrokes = 0;
+
 const wordsContainer = document.getElementById("words");
 
-const timerElement = document.getElementById("timer")
+const timerElement = document.getElementById("timer");
+
+const wpmElement = document.getElementById("wpm");
+const accuracyElement = document.getElementById("accuracy");
 
 function generateWords() {
     wordsContainer.innerHTML = "";
@@ -109,7 +119,7 @@ document.addEventListener("keydown", function(event) {
     ) {
         startTimer();
     }
-    
+
     const words = document.querySelectorAll(".word");
     const currentWord = words[currentWordIndex];
 
