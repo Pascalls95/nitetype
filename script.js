@@ -24,6 +24,8 @@ let testFinished = false;
 
 const wordsContainer = document.getElementById("words");
 
+const timerElement = document.getElementById("timer")
+
 function generateWords() {
     wordsContainer.innerHTML = "";
 
@@ -70,7 +72,30 @@ function updateCursor() {
 }
 updateCursor();
 
+function startTimer() {
+    if (testStarted || testFinished) return;
+
+    testStarted = true;
+
+    timerInterval = setInterval(function() {
+        timeLeft--;
+        timerElement.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+            finishTest();
+        }
+    }, 1000);
+}
+
+function finishTest() {
+    clearInterval(timerInterval);
+    testFinished = true;
+    timerElement.textContent = 0;
+}
+
 document.addEventListener("keydown", function(event) {
+    if(testFinished) return;
+
     if (event.key.length !== 1 && 
         event.key !== "Backspace" &&
         event.key !== " "
@@ -78,6 +103,13 @@ document.addEventListener("keydown", function(event) {
         return;
     }
 
+    if (event.key.length === 1 &&
+        event.key !== " " &&
+        !testStarted
+    ) {
+        startTimer();
+    }
+    
     const words = document.querySelectorAll(".word");
     const currentWord = words[currentWordIndex];
 
