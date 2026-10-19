@@ -38,6 +38,19 @@ body {
 #results {
     color: white;
     font-family: Google Sans Code;
+    text-align: center;
+}
+
+#wpm {
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+#accuracy {
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 10px;
 }
 
 span {
