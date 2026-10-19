@@ -82,6 +82,28 @@ function updateCursor() {
 }
 updateCursor();
 
+const durartionButtons = document.querySelectorAll(
+    "#test-settings button"
+);
+
+durartionButtons.forEach(button => {
+    button.addEventListener("click", function() {
+        testDuration = Number(button.textContent);
+        resetTest();
+
+        durartionButtons.forEach(btn => {
+            btn.classList.toggle("active", btn === button);
+        });
+    });
+});
+
+durartionButtons.forEach(button => {
+    button.classList.toggle(
+        "active",
+        Number(button.textContent) === testDuration
+    );
+});
+
 function startTimer() {
     if (testStarted || testFinished) return;
 
