@@ -129,6 +129,23 @@ function updateStats() {
     accuracyElement.textContent = accuracy + "%";
 }
 
+function resetTest() {
+    clearInterval(timerInterval);
+
+    timeLeft = testDuration;
+    testStarted = false;
+    testFinished = false;
+    timerInterval = null;
+
+    correctCharacters = 0;
+    incorrectCharacters = 0;
+    totalKeystrokes = 0;
+
+    timerElement.textContent = timeLeft;
+
+    generateWords();
+}
+
 document.addEventListener("keydown", function(event) {
     if(testFinished) return;
 
