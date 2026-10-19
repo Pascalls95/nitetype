@@ -29,29 +29,38 @@ body {
     border: solid 2px white;
     padding: 10px;
     border-radius: 8px;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 #test-info {
     color: white;
+    margin-left: 20px;
 }
 
 #results {
     color: white;
     font-family: Google Sans Code;
     text-align: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 40px;
+    gap: 40px;
 }
 
-#wpm {
+#results div {
     border: 2px solid white;
     border-radius: 8px;
-    padding: 10px;
+    padding: 5px 5px;
+    min-width: 120px;
+    text-align: center;
 }
 
-#accuracy {
-    border: 2px solid white;
-    border-radius: 8px;
-    padding: 10px;
+#results span {
+    font-size: 14px;
+    color: white;
 }
+
 
 span {
     font-family: Google Sans Code;
