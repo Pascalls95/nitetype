@@ -93,6 +93,10 @@ button:hover {
     border: solid 2px white;
 }
 
+#test-settings button.active {
+    border-color: white;
+}
+
 #restart {
     display: flex;
     align-items: center;
