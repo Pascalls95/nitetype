@@ -104,6 +104,12 @@ durartionButtons.forEach(button => {
     );
 });
 
+const restartButton = document.getElementById("restart-btn");
+
+restartButton.addEventListener("click", function() {
+    resetTest();
+});
+
 function startTimer() {
     if (testStarted || testFinished) return;
 
@@ -159,6 +165,9 @@ function resetTest() {
     testFinished = false;
     timerInterval = null;
 
+    currentWordIndex = 0;
+    currentLetterIndex = 0;
+
     correctCharacters = 0;
     incorrectCharacters = 0;
     totalKeystrokes = 0;
@@ -166,6 +175,8 @@ function resetTest() {
     timerElement.textContent = timeLeft;
 
     generateWords();
+    updateCursor();
+    updateStats();
 }
 
 document.addEventListener("keydown", function(event) {
