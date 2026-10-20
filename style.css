@@ -15,12 +15,15 @@ h6 {
 body {
     background-color: black;
 }
-
 nav {
     text-align: right; 
 }
 
 a {
+    text-decoration: none;
+}
+
+#nav a {
     text-decoration: none;
     color: rgb(186, 180, 180);
     font-family: Google Sans Code;
@@ -29,7 +32,7 @@ a {
     transition: 0.3s;
 }
 
-a:hover {
+#nav a:hover {
     color: white;
 }
 
