@@ -39,7 +39,7 @@ const accuracyElement = document.getElementById("accuracy");
 function generateWords() {
     wordsContainer.innerHTML = "";
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 58; i++) {
         const randomIndex = Math.floor(Math.random() * wordBank.length);
         const randomWord = wordBank[randomIndex];
 
@@ -56,7 +56,7 @@ function generateWords() {
 
         wordsContainer.appendChild(wordElement);
 
-        if (i < 49) {
+        if (i < 57) {
             wordsContainer.appendChild(document.createTextNode(" "));
         }
     }
