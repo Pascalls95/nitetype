@@ -16,6 +16,23 @@ body {
     background-color: black;
 }
 
+nav {
+    text-align: right; 
+}
+
+a {
+    text-decoration: none;
+    color: rgb(186, 180, 180);
+    font-family: Google Sans Code;
+    margin-right: 30px;
+    padding-left: 20px;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: white;
+}
+
 #test-settings p {
     color: white;
     font-family: Google Sans Code;
