@@ -219,22 +219,34 @@ document.addEventListener("keydown", function(event) {
     if (event.key === "Backspace") {
         if (currentLetterIndex > 0) {
             currentLetterIndex--;
+        } else if (currentWordIndex > 0) {
+            currentWordIndex--;
 
-            const previousLetter = letters[currentLetterIndex];
+            const previousWord = words[currentWordIndex];
+            const previousLetters = previousWord.querySelectorAll(".letter");
 
-            if (previousLetter.classList.contains("correct")) {
+            currentLetterIndex = previousLetters.length;
+        } else {
+            return;
+        }
+
+        const wordAfterMovingBack = words[currentWordIndex];
+        const lettersAfterMovingBack = wordAfterMovingBack.querySelectorAll(".letter");
+        const letterToDelete = lettersAfterMovingBack[currentLetterIndex];
+
+        if (letterToDelete) {
+            if (letterToDelete.classList.contains("correct")) {
                 correctCharacters--;
                 totalKeystrokes--;
-            } else if (previousLetter.classList.contains("incorrect")) {
+            } else if (letterToDelete.classList.contains("incorrect")) {
                 incorrectCharacters--;
                 totalKeystrokes--;
             }
 
-            previousLetter.classList.remove("correct", "incorrect");
-            
-            updateCursor();
-            updateStats();
+            letterToDelete.classList.remove("correct", "incorrect");
         }
+        updateCursor();
+        updateStats();
         return;
     }
 
