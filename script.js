@@ -10,7 +10,8 @@ const wordBank = [
     "horizon", "star", "dance", "crescent", "scraps",
     "algorithm", "variable", "string", "function", "constant",
     "bug", "library", "frame", "work", "data",
-    "base", "front", "back", "end", "syntax"
+    "base", "front", "back", "end", "syntax",
+    "and", "at", "are", "always", "anchor",
 ];
 
 /*position tracking variables*/
