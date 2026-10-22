@@ -219,8 +219,21 @@ document.addEventListener("keydown", function(event) {
     if (event.key === "Backspace") {
         if (currentLetterIndex > 0) {
             currentLetterIndex--;
-            letters[currentLetterIndex].classList.remove("correct", "incorrect");
+
+            const previousLetter = letters[currentLetterIndex];
+
+            if (previousLetter.classList.contains("correct")) {
+                correctCharacters--;
+                totalKeystrokes--;
+            } else if (previousLetter.classList.contains("incorrect")) {
+                incorrectCharacters--;
+                totalKeystrokes--;
+            }
+
+            previousLetter.classList.remove("correct", "incorrect");
+            
             updateCursor();
+            updateStats();
         }
         return;
     }
