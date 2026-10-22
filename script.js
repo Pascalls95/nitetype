@@ -202,7 +202,11 @@ document.addEventListener("keydown", function(event) {
     if (event.key === " ") {
         event.preventDefault();
 
-        if (currentLetterIndex > 0 && currentWordIndex < words.length -1) {
+        if (
+            currentWord &&
+            currentLetterIndex === currentWord.querySelectorAll(".letter").length &&
+            currentWordIndex < words.length - 1
+        ) {
             currentWordIndex++;
             currentLetterIndex = 0;
             updateCursor();
