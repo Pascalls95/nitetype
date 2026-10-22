@@ -36,10 +36,12 @@ const timerElement = document.getElementById("timer");
 const wpmElement = document.getElementById("wpm");
 const accuracyElement = document.getElementById("accuracy");
 
-function generateWords() {
-    wordsContainer.innerHTML = "";
+function generateWords(count = 58, append = false) {
+    if (!append) {
+        wordsContainer.innerHTML = "";
+    }
 
-    for (let i = 0; i < 58; i++) {
+    for (let i = 0; i < count; i++) {
         const randomIndex = Math.floor(Math.random() * wordBank.length);
         const randomWord = wordBank[randomIndex];
 
@@ -53,13 +55,16 @@ function generateWords() {
 
             wordElement.appendChild(letterElement);
         }
-
-        wordsContainer.appendChild(wordElement);
-
-        if (i < 57) {
+        if (wordsContainer.children.length > 0) {
             wordsContainer.appendChild(document.createTextNode(" "));
         }
+
+        wordsContainer.appendChild(wordElement);
     }
+}
+
+function generateMoreWords(count = 58) {
+    generateWords(count, true);
 }
 
 generateWords();
@@ -199,16 +204,25 @@ document.addEventListener("keydown", function(event) {
     const words = document.querySelectorAll(".word");
     const currentWord = words[currentWordIndex];
 
+    if (!currentWord) {
+        return;
+    }
+
     if (event.key === " ") {
         event.preventDefault();
 
         if (
-            currentWord &&
-            currentLetterIndex === currentWord.querySelectorAll(".letter").length &&
-            currentWordIndex < words.length - 1
+            currentLetterIndex === currentWord.querySelectorAll(".letter").length
         ) {
-            currentWordIndex++;
-            currentLetterIndex = 0;
+            if (currentWordIndex < words.length - 1) {
+                currentWordIndex++;
+                currentLetterIndex = 0;
+            } else {
+                const oldWordCount = words.length;
+                generateMoreWords(58);
+                currentWordIndex = oldWordCount;
+                currentLetterIndex = 0;
+            }
             updateCursor();
         }
         return;
