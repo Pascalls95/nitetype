@@ -203,6 +203,12 @@ function resetTest() {
     generateWords();
     updateCursor();
     updateStats();
+
+    document.getElementById("test-settings").style.display = "";
+    document.getElementById("typing-test").style.display = "";
+    document.getElementById("results").style.display = "";
+
+    resultsScreen.style.display = "none";
 }
 
 document.addEventListener("keydown", function(event) {
