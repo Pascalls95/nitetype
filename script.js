@@ -37,6 +37,12 @@ const timerElement = document.getElementById("timer");
 const wpmElement = document.getElementById("wpm");
 const accuracyElement = document.getElementById("accuracy");
 
+const resultsScreen = document.getElementById("results-screen");
+const finalWpmElement = document.getElementById("final-wpm");
+const finalAccuracyElement = document.getElementById("final-wpm");
+const finalCorrectElement = document.getElementById("final-correct");
+const resultRestartButton = document.getElementById("result-restart-btn");
+
 function generateWords(count = 58, append = false) {
     if (!append) {
         wordsContainer.innerHTML = "";
