@@ -156,3 +156,17 @@ button:hover {
     font-size: 25px;
     margin-left: 10px;
 }
+
+#results-screen {
+    text-align: center;
+    margin: 40px auto;
+    color: white;
+}
+
+.final-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 35px auto;
+}
