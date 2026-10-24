@@ -19,7 +19,7 @@ let currentWordIndex = 0;
 let currentLetterIndex = 0;
 
 /*timer variables*/
-let testDuration = 5;
+let testDuration = 30;
 let timeLeft = testDuration;
 let timerInterval = null;
 let testStarted = false;
