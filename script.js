@@ -19,7 +19,7 @@ let currentWordIndex = 0;
 let currentLetterIndex = 0;
 
 /*timer variables*/
-let testDuration = 30;
+let testDuration = 5;
 let timeLeft = testDuration;
 let timerInterval = null;
 let testStarted = false;
@@ -39,7 +39,7 @@ const accuracyElement = document.getElementById("accuracy");
 
 const resultsScreen = document.getElementById("results-screen");
 const finalWpmElement = document.getElementById("final-wpm");
-const finalAccuracyElement = document.getElementById("final-wpm");
+const finalAccuracyElement = document.getElementById("final-accuracy");
 const finalCorrectElement = document.getElementById("final-correct");
 const resultRestartButton = document.getElementById("result-restart-btn");
 
