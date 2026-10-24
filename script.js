@@ -143,6 +143,16 @@ function finishTest() {
     timerElement.textContent = 0;
 
     updateStats();
+
+    finalWpmElement.textContent = wpmElement.textContent;
+    finalAccuracyElement.textContent = accuracyElement.textContent;
+    finalCorrectElement.textContent = correctCharacters;
+
+    document.getElementById("test-settings").style.display = "none";
+    document.getElementById("typing-test").style.display = "none";
+    document.getElementById("results").style.display = "none";
+
+    resultsScreen.style.display = "block";
 }
 
 function updateStats() {
