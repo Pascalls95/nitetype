@@ -122,6 +122,10 @@ restartButton.addEventListener("click", function() {
     resetTest();
 });
 
+resultRestartButton.addEventListener("click", function() {
+    resetTest();
+});
+
 function startTimer() {
     if (testStarted || testFinished) return;
 
